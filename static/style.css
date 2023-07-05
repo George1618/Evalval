@@ -1,0 +1,111 @@
+:root {
+    --color-1: black;
+    --color-2: orange;
+    --color-3: lightskyblue;
+    --color-4: orangered;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: var(--color-1);
+    color: var(--color-2);
+    border-color: var(--color-2);
+    display: flex;
+    flex-direction: column;
+}
+
+body > * {
+    border: 2px solid var(--color-1);
+    width: calc(100% - 4px);
+}
+
+#titulo {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+    background: inherit;
+    color: var(--color-3);
+    border-color: var(--color-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(10% - 4px);
+}
+
+#form {
+    background: var(--color-2);
+    color: var(--color-1);
+    border-color: var(--color-4);
+    height: calc(50% - 4px);
+}
+
+#form, #saida {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+#saida {
+    background: var(--color-2);
+    color: var(--color-1);
+    border-color: var(--color-4);
+    height: calc(40% - 4px);
+}
+
+label, button, #estado {
+    font-size: 20px;
+    height: 10%;
+    width: fit-content;
+}
+#codigo {
+    background: var(--color-1);
+    color: var(--color-2);
+    height: 70%;
+    width: calc(100% - 12px);
+}
+button {
+    border: 1px solid var(--color-2);
+    border-radius: 5%;
+    cursor: pointer;
+    background: var(--color-1);
+    color: var(--color-2);
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 30%;
+}
+#info {
+    background: var(--color-1);
+    color: var(--color-2);
+    border-radius: 50%;
+    font-size: 16px;
+    padding: 0 6px;
+    height: fit-content;
+    cursor: help;
+}
+
+#codigo, #resultado {
+    font-family: monospace;
+    white-space: pre-wrap;
+    font-size: 22px;
+    padding: 6px;
+}
+
+#estado {
+    height: 10%;
+}
+
+#resultado {
+    background: var(--color-1);
+    color: var(--color-2);
+    margin: 12px;
+    height: 90%;
+    min-width: 90%;
+    overflow: auto;
+}

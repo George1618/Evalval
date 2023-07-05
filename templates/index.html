@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<title>Evalval</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<!-- body -->
+<h1 id="titulo">Evalval - Rode código em Python</h1>
+<form id="form" method="post">
+    <label for="codigo">Código:</label>
+    <textarea id="codigo" name="code" placeholder="digite seu código aqui... (para identar, use ctrl + backspace)"></textarea>
+    <label for="exec"><input id="exec" type="checkbox" name="exec" checked> Executar em vez de evaluar 
+        <span id="info" title="Eval só roda Expressões. Para rodar Declarações de código que, por exemplo, incluem condicionais e laços, marque este campo">i</span>
+    </label>
+    <button type="submit">Rodar!</button>
+</form>
+<aside id="saida">
+    <p id="estado">Resultado:</p>
+    <p id="resultado"></p>
+</aside>
+<!-- definição de urls pelo template para serem usados no próximo script -->
+<script>    
+    // url atual
+    const ROOT = {{ request.script_root|tojson }}
+    // rota da api
+    const api_route = {{ api_str|tojson }}
+    // url para a api do Flask, ou seja, o servidor
+    const api_url = `${ROOT}/${api_route}`
+</script>
+<!-- Script para chamar a api do Flask, utilizando a API Fetch -->
+<script  type="text/javascript" src="{{ url_for('static', filename='fetch.js') }}"></script>
+<!-- Script para melhorar o editor (textarea) -->
+<script type="text/javascript" src="{{ url_for('static', filename='editor.js') }}"></script>
